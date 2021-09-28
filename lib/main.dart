@@ -1,13 +1,20 @@
-import 'package:animation_library/smartCarApp/animation_classes.dart';
 import 'package:animation_library/smartCarApp/bottom_nav_bar.dart';
+import 'package:animation_library/smartCarApp/models/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => HomeController(),
+          ),
+        ],
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

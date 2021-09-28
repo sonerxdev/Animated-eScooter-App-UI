@@ -6,6 +6,7 @@ const kPrimaryLightColor = Color(0xFFc0cfe2);
 const fifthColor = Color(0Xff8D8EEC);
 const thirdColor = Color(0Xff4C4AED);
 
+const textColor = Color(0xff3c95fd);
 const mainColor = Color(0xff131F2D);
 const secondColor = Color(0xff5ABD8C);
 const mainColor2 = Color(0xFF2A3442);

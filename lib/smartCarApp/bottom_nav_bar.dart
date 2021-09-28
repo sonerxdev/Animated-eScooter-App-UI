@@ -1,10 +1,12 @@
 import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
 import 'package:animation_library/smartCarApp/home_page.dart';
-import 'package:animation_library/smartCarApp/location_page.dart';
+import 'package:animation_library/smartCarApp/battery_page.dart';
+import 'package:animation_library/smartCarApp/models/home_controller.dart';
 import 'package:animation_library/smartCarApp/profile_page.dart';
 import 'package:animation_library/smartCarApp/settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavigationBarPage extends StatefulWidget {
   const BottomNavigationBarPage({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class BottomNavigationBarPage extends StatefulWidget {
 class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   int _selectedIndex = 0;
   PageController? _pageController;
+  //HomeController _homeController = HomeController();
 
   void _onItemTapped(int index) {
     setState(() {
@@ -40,23 +43,9 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _homeController = Provider.of<HomeController>(context);
     return Scaffold(
-      floatingActionButton: Container(
-        height: context.dynamicHeight(0.07),
-        width: context.dynamicWidth(0.35),
-        decoration: BoxDecoration(
-          color: Colors.black12,
-          borderRadius: BorderRadius.circular(40),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Icon(Icons.qr_code_scanner_outlined),
-            Text("Unlock"),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // backgroundColor: Colors.black87,
       bottomNavigationBar: Container(
         decoration: boxDecoration(),
         margin: const EdgeInsets.all(12.0),
@@ -64,26 +53,22 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
           borderRadius: BorderRadius.circular(40.0),
           child: BottomNavigationBar(
             unselectedItemColor: Colors.black87,
-            selectedItemColor: fifthColor,
+            selectedItemColor: textColor,
             type: BottomNavigationBarType.shifting,
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_outlined,
                 ),
-                label: '',
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.battery_charging_full_outlined),
+                label: 'Charge',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.location_on_outlined),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline_outlined),
-                label: '',
+                label: 'Location',
               ),
             ],
             currentIndex: _selectedIndex,
@@ -95,13 +80,15 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            setState(() => _selectedIndex = index);
+            setState(() {
+              _selectedIndex = index;
+              _homeController.updateSizeScooter();
+            });
           },
           children: <Widget>[
             HomePage(),
+            BatteryPage(),
             LocationPage(),
-            SettingsPage(),
-            ProfilePage(),
           ],
         ),
       ),
@@ -113,9 +100,9 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       borderRadius: BorderRadius.circular(40.0),
       boxShadow: [
         BoxShadow(
-          color: mainColor.withOpacity(0.2),
-          spreadRadius: 2,
-          blurRadius: 12,
+          color: mainColor.withOpacity(0.5),
+          spreadRadius: 4,
+          blurRadius: 13,
         ),
       ],
     );
