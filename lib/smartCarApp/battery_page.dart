@@ -117,7 +117,7 @@ class _BatteryPageState extends State<BatteryPage> {
               ),
               SizedBox(height: context.dynamicHeight(0.01)),
               Container(
-                height: context.dynamicHeight(0.4),
+                height: context.dynamicHeight(0.3),
                 width: context.dynamicWidth(0.8),
                 child: LineChartSample2(),
               ),
@@ -129,22 +129,7 @@ class _BatteryPageState extends State<BatteryPage> {
                     decoration: boxDecoration(),
                     child: Column(
                       children: [
-                        Text(
-                          "Range",
-                          style: GoogleFonts.yantramanav(
-                            textStyle: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: context.dynamicHeight(0.03),
-                        ),
                         Row(
-                          //  crossAxisAlignment: CrossAxisAlignment.start,
-                          // mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Column(
                               children: [

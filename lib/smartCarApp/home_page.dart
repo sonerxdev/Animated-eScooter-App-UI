@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           height: context.dynamicHeight(0.07),
           width: context.dynamicWidth(0.35),
           decoration: BoxDecoration(
-            color: Colors.black87,
+            color: darkBackgroundColor,
             borderRadius: BorderRadius.circular(40),
           ),
           child: Row(
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           child: CircleAvatar(
             child: Padding(
               padding: EdgeInsets.only(
-                left: context.dynamicWidth(0.1),
+                left: context.dynamicWidth(0.07),
                 bottom: context.dynamicHeight(0.1),
               ),
               child: Icon(
@@ -344,7 +344,7 @@ class _HomePageState extends State<HomePage> {
 
 BoxDecoration boxDecoration() {
   return BoxDecoration(
-    color: Colors.black87,
+    color: darkBackgroundColor,
     borderRadius: BorderRadius.circular(10.0),
   );
 }

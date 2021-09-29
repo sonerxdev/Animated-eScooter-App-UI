@@ -4,7 +4,7 @@ import 'package:animation_library/smartCarApp/home_page.dart';
 import 'package:animation_library/smartCarApp/battery_page.dart';
 import 'package:animation_library/smartCarApp/models/home_controller.dart';
 import 'package:animation_library/smartCarApp/profile_page.dart';
-import 'package:animation_library/smartCarApp/settings_page.dart';
+import 'package:animation_library/smartCarApp/location_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,36 +45,42 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   Widget build(BuildContext context) {
     final _homeController = Provider.of<HomeController>(context);
     return Scaffold(
-      // backgroundColor: Colors.black87,
-      bottomNavigationBar: Container(
-        decoration: boxDecoration(),
-        margin: const EdgeInsets.all(12.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(40.0),
-          child: BottomNavigationBar(
-            unselectedItemColor: Colors.black87,
-            selectedItemColor: textColor,
-            type: BottomNavigationBarType.shifting,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_outlined,
-                ),
-                label: 'Home',
+      backgroundColor:
+          _selectedIndex == 2 ? Colors.black87.withOpacity(0.4) : Colors.white,
+      bottomNavigationBar: Stack(
+        children: [
+          Container(
+            decoration: boxDecoration(),
+            margin: const EdgeInsets.all(12.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(40.0),
+              child: BottomNavigationBar(
+                unselectedItemColor: Colors.white,
+                selectedItemColor: textColor,
+                backgroundColor: darkBackgroundColor,
+                type: BottomNavigationBarType.fixed,
+                items: const [
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.home_outlined,
+                    ),
+                    label: 'Home',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.battery_charging_full_outlined),
+                    label: 'Charge',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.location_on_outlined),
+                    label: 'Location',
+                  ),
+                ],
+                currentIndex: _selectedIndex,
+                onTap: _onItemTapped,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.battery_charging_full_outlined),
-                label: 'Charge',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.location_on_outlined),
-                label: 'Location',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
+            ),
           ),
-        ),
+        ],
       ),
       body: SizedBox.expand(
         child: PageView(

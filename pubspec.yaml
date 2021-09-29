@@ -25,6 +25,7 @@ dependencies:
   fl_chart: ^0.40.0
   flutter:
     sdk: flutter
+  flutter_map: ^0.14.0
   flutter_svg: ^0.22.0
   google_fonts: ^2.1.0
   percent_indicator: ^3.0.1
