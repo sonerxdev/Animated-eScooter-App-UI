@@ -1,10 +1,11 @@
 import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
-import 'package:animation_library/smartCarApp/home_page.dart';
-import 'package:animation_library/smartCarApp/battery_page.dart';
-import 'package:animation_library/smartCarApp/models/home_controller.dart';
-import 'package:animation_library/smartCarApp/profile_page.dart';
-import 'package:animation_library/smartCarApp/location_page.dart';
+
+import 'package:animation_library/smartScooterApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/screens/battery_page.dart';
+import 'package:animation_library/smartScooterApp/screens/home_page.dart';
+import 'package:animation_library/smartScooterApp/screens/location_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

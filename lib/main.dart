@@ -1,5 +1,5 @@
-import 'package:animation_library/smartCarApp/bottom_nav_bar.dart';
-import 'package:animation_library/smartCarApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/screens/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

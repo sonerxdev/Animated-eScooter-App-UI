@@ -1,4 +1,5 @@
 import 'package:animation_library/core/base_state.dart';
+import 'package:animation_library/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,7 +53,7 @@ class LocationPage extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 50,
+            bottom: 5,
             height: context.dynamicHeight(0.3),
             child: PageView.builder(itemBuilder: (context, index) {
               return MapItemDetails();
@@ -143,8 +144,107 @@ class MapItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
+    return Padding(
+      padding: context.insetsAll(0.06),
+      child: Container(
+        padding: context.insetsAll(0.05),
+        decoration: boxDecoration1(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Image.asset(
+                "assets/images/scooter.png",
+              ),
+            ),
+            Column(
+              children: [
+                Text(
+                  "Battery",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Text(
+                  "%86",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: context.dynamicWidth(0.05),
+            ),
+            Column(
+              children: [
+                Text(
+                  "Distance",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Text(
+                  "28.3 km",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: context.dynamicWidth(0.05),
+            ),
+            Column(
+              children: [
+                Text(
+                  "Duration",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Text(
+                  "2 hour",
+                  style: GoogleFonts.yantramanav(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
+}
+
+BoxDecoration boxDecoration1() {
+  return BoxDecoration(
+    color: Colors.black,
+    borderRadius: BorderRadius.circular(10.0),
+  );
 }

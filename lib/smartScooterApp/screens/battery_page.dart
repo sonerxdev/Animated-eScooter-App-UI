@@ -1,7 +1,7 @@
 import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
-import 'package:animation_library/smartCarApp/home_page.dart';
-import 'package:animation_library/smartCarApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/screens/home_page.dart';
 import 'package:animation_library/widgets/chart_1.dart';
 import 'package:animation_library/widgets/chart_2.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class BatteryPage extends StatefulWidget {
-  BatteryPage({Key? key}) : super(key: key);
+class BatteryPage extends StatelessWidget {
+  const BatteryPage({Key? key}) : super(key: key);
 
-  @override
-  _BatteryPageState createState() => _BatteryPageState();
-}
-
-class _BatteryPageState extends State<BatteryPage> {
   @override
   Widget build(BuildContext context) {
     final _homeController = Provider.of<HomeController>(context);
@@ -127,90 +122,86 @@ class _BatteryPageState extends State<BatteryPage> {
                   Container(
                     padding: context.insetsAll(0.03),
                     decoration: boxDecoration(),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Column(
                           children: [
-                            Column(
-                              children: [
-                                Text(
-                                  "Battery",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
+                            Text(
+                              "Battery",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
                                 ),
-                                Text(
-                                  "%86",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 23,
-                                      color: textColor,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            SizedBox(
-                              width: context.dynamicWidth(0.05),
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  "Distance",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
+                            Text(
+                              "%86",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 23,
+                                  color: textColor,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                Text(
-                                  "28.3 km",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 23,
-                                      color: textColor,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: context.dynamicWidth(0.05),
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  "Duration",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "2 hour",
-                                  style: GoogleFonts.yantramanav(
-                                    textStyle: TextStyle(
-                                      fontSize: 23,
-                                      color: textColor,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          width: context.dynamicWidth(0.05),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Distance",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "28.3 km",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 23,
+                                  color: textColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: context.dynamicWidth(0.05),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Duration",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "2 hour",
+                              style: GoogleFonts.yantramanav(
+                                textStyle: TextStyle(
+                                  fontSize: 23,
+                                  color: textColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

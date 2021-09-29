@@ -1,19 +1,14 @@
 import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
-import 'package:animation_library/smartCarApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/models/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final _homeController = Provider.of<HomeController>(context);
