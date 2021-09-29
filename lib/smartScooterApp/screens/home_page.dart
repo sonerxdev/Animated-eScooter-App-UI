@@ -1,6 +1,7 @@
 import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
 import 'package:animation_library/smartScooterApp/models/home_controller.dart';
+import 'package:animation_library/smartScooterApp/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -48,20 +49,29 @@ class HomePage extends StatelessWidget {
         elevation: 0.0,
         leading: Padding(
           padding: context.insetsAll(0.01),
-          child: CircleAvatar(
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: context.dynamicWidth(0.07),
-                bottom: context.dynamicHeight(0.1),
-              ),
-              child: Icon(
-                Icons.circle,
-                color: Colors.red,
-                size: 16.0,
-              ),
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
             ),
-            backgroundImage: AssetImage(
-              "assets/images/person.jpg",
+            child: Hero(
+              tag: 'profile-photo',
+              child: CircleAvatar(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: context.dynamicWidth(0.07),
+                    bottom: context.dynamicHeight(0.1),
+                  ),
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.red,
+                    size: 16.0,
+                  ),
+                ),
+                backgroundImage: AssetImage(
+                  "assets/images/person.jpg",
+                ),
+              ),
             ),
           ),
         ),
@@ -167,7 +177,7 @@ class HomePage extends StatelessWidget {
                               style: GoogleFonts.yantramanav(
                                 textStyle: TextStyle(
                                   fontSize: 17,
-                                  color: Colors.white,
+                                  color: Colors.white70,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -194,7 +204,7 @@ class HomePage extends StatelessWidget {
                               style: GoogleFonts.yantramanav(
                                 textStyle: TextStyle(
                                   fontSize: 17,
-                                  color: Colors.white,
+                                  color: Colors.white70,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -221,7 +231,7 @@ class HomePage extends StatelessWidget {
                               style: GoogleFonts.yantramanav(
                                 textStyle: TextStyle(
                                   fontSize: 17,
-                                  color: Colors.white,
+                                  color: Colors.white70,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),

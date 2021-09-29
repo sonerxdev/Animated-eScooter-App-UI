@@ -1,6 +1,4 @@
-import 'package:animation_library/core/base_state.dart';
 import 'package:animation_library/core/constants.dart';
-
 import 'package:animation_library/smartScooterApp/models/home_controller.dart';
 import 'package:animation_library/smartScooterApp/screens/battery_page.dart';
 import 'package:animation_library/smartScooterApp/screens/home_page.dart';
